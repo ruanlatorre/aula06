@@ -12,7 +12,8 @@ def main(page: ft.Page):
     )
 
     def jogar(e):
-        imagem_selecionada = e.control.content.value
+        # CORREÇÃO 1: Usando 'data' para identificar qual botão foi clicado
+        imagem_selecionada = e.control.data
 
         # mostra a imagem ao clicar
         e.control.image.opacity = 1.0
@@ -53,7 +54,8 @@ def main(page: ft.Page):
         page.update()
 
     container_mario = ft.Container(
-        content=ft.Text("Mario"),
+        data="Mario",  # <-- Adicionado para identificar o container
+        content=ft.Text(""),
         image=ft.DecorationImage(
             src="images/mario.png",
             fit=ft.BoxFit.COVER,
@@ -70,7 +72,8 @@ def main(page: ft.Page):
     )
 
     container_luigi = ft.Container(
-        content=ft.Text("Luigi"),
+        data="Luigi",  # <-- Adicionado para identificar o container
+        content=ft.Text(""),
         image=ft.DecorationImage(
             src="images/luigi.png",
             fit=ft.BoxFit.COVER,
@@ -91,7 +94,8 @@ def main(page: ft.Page):
         alignment=ft.MainAxisAlignment.CENTER
     )
 
-    btn_jogar_novamente = ft.Button(
+    # CORREÇÃO 2: Alterado de ft.Button para ft.ElevatedButton
+    btn_jogar_novamente = ft.ElevatedButton(
         "Jogar Novamente",
         visible=False,
         on_click=jogar_novamente
@@ -111,4 +115,4 @@ def main(page: ft.Page):
         )
     )
 
-ft.run(main)
+ft.app(main)
