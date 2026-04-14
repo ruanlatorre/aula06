@@ -12,10 +12,10 @@ def main(page: ft.Page):
     )
 
     def jogar(e):
-        # CORREÇÃO 1: Usando 'data' para identificar qual botão foi clicado
+ 
         imagem_selecionada = e.control.data
 
-        # mostra a imagem ao clicar
+     
         e.control.image.opacity = 1.0
 
         if imagem_selecionada == imagem_correta:
@@ -54,7 +54,7 @@ def main(page: ft.Page):
         page.update()
 
     container_mario = ft.Container(
-        data="Mario",  # <-- Adicionado para identificar o container
+        data="Mario", 
         content=ft.Text(""),
         image=ft.DecorationImage(
             src="images/mario.png",
@@ -72,7 +72,7 @@ def main(page: ft.Page):
     )
 
     container_luigi = ft.Container(
-        data="Luigi",  # <-- Adicionado para identificar o container
+        data="Luigi", 
         content=ft.Text(""),
         image=ft.DecorationImage(
             src="images/luigi.png",
@@ -94,7 +94,7 @@ def main(page: ft.Page):
         alignment=ft.MainAxisAlignment.CENTER
     )
 
-    # CORREÇÃO 2: Alterado de ft.Button para ft.ElevatedButton
+
     btn_jogar_novamente = ft.ElevatedButton(
         "Jogar Novamente",
         visible=False,
